@@ -1,72 +1,81 @@
 "use strict";
-const form = document.getElementById("backg");
-const successMessage = document.getElementById("sucess-message");
-// // selecting inputs
+const form = document.querySelector("form");
+const successMessage = document.getElementById("success-message");
+
+// selecting inputs
 form.addEventListener("submit", (e) => {
-  e.preventDefault;
-  const fname = document.getElementById("fname").Value.trim();
-  const lastname = document.getElementById("lastname").Value.trim();
-  const email = document.getElementById("email").Value.trim();
-  const mesaage = document.getElementById("mesaage-box").Value.trim();
+  e.preventDefault();
+
+  const fname = document.getElementById("fname").value.trim();
+  const lastname = document.getElementById("lastname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message-box").value.trim();
   const consent = document.getElementById("consent").checked;
-  const querytype = document.querySelector('input[name="query-type"]:checked');
+  const querytype = document.querySelector('input[name="query"]:checked');
 
   const formAlert = document.querySelectorAll(".form-alert");
 
-  let isvalid = true;
+  let isValid = true;
 
-  // first name validation
-
+  // First name validation
   if (fname === "") {
-    isvalid = false;
-
-    document.querySelector("#fname +.form-alert").style.display = " block";
-    document.getElementById("#fname").style.border = "1 px solid var(--red)";
+    isValid = false;
+    document.querySelector("#fname + .form-alert").style.display = "block";
+    document.getElementById("fname").style.border = "1px solid red";
   } else {
-    document.querySelector("#fname +.form-alert").style.display = " none";
-    document.getElementById("#fname").style.border =
-      "1 px solid var(--medium-grey)";
+    document.querySelector("#fname + .form-alert").style.display = "none";
+    document.getElementById("fname").style.border = "1px solid green";
   }
-  // last Name validation
+
+  // Last name validation
   if (lastname === "") {
-    isvalid = false;
-
-    document.querySelector("#lastname +.form-alert").style.display = " block";
-    document.getElementById("#lastname").style.border = "1 px solid var(--red)";
+    isValid = false;
+    document.querySelector("#lastname + .form-alert").style.display = "block";
+    document.getElementById("lastname").style.border = "1px solid red";
   } else {
-    document.querySelector("#lastname +.form-alert").style.display = " none";
-    document.getElementById("#lastname").style.border =
-      "1 px solid var(--medium-grey)";
+    document.querySelector("#lastname + .form-alert").style.display = "none";
+    document.getElementById("lastname").style.border = "1px solid green";
   }
 
-  // email validation
+  // Email validation
   if (email === "") {
-    isvalid = false;
-
-    document.querySelector("#email +.form-alert").style.display = " block";
-    document.getElementById("#email").style.border = "1 px solid var(--red)";
+    isValid = false;
+    document.querySelector("#email + .form-alert").style.display = "block";
+    document.getElementById("email").style.border = "1px solid red";
   } else {
-    document.querySelector("#email +.form-alert").style.display = " none";
-    document.getElementById("#email").style.border =
-      "1 px solid var(--medium-grey)";
+    document.querySelector("#email + .form-alert").style.display = "none";
+    document.getElementById("email").style.border = "1px solid green";
   }
 
-  // meassgae validation
-  if (mesaage === "") {
-    isvalid = false;
-
-    document.querySelector("#mesaage-box +.form-alert").style.display =
-      " block";
-    document.getElementById("#mesaage-box").style.border =
-      "1 px solid var(--red)";
+  // Message validation
+  if (message === "") {
+    isValid = false;
+    document.querySelector("#message-box + .form-alert").style.display =
+      "block";
+    document.getElementById("message-box").style.border = "1px solid red";
   } else {
-    document.querySelector("#mesaage-box +.form-alert").style.display = " none";
-    document.getElementById("#mesaage-box").style.border =
-      "1 px solid var(--medium-grey)";
+    document.querySelector("#message-box + .form-alert").style.display = "none";
+    document.getElementById("message-box").style.border = "1px solid green";
   }
 
-  if (isvalid) {
-    successMessage.classList.add("active");
-    formAlert.reset();
+  // Query type validation
+  if (!querytype) {
+    isValid = false;
+    document.querySelector(".radio + .form-alert").style.display = "block";
+  } else {
+    document.querySelector(".radio + .form-alert").style.display = "none";
+  }
+
+  // Consent validation
+  if (!consent) {
+    isValid = false;
+    document.querySelector("#consent + .form-alert").style.display = "block";
+  } else {
+    document.querySelector("#consent + .form-alert").style.display = "none";
+  }
+
+  if (isValid) {
+    successMessage.style.opacity = "0";
+    form.reset();
   }
 });

@@ -8,30 +8,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
     <!-- link css -->
     <link rel="stylesheet" href="./css/style.css" />
-    <!-- link js script sheet -->
   </head>
   <body>
-    <script src="./JS/script.js"></script>
     <main>
       <div class="backg">
-        <form action="" method="POST">
+        <form action="#" method="POST">
           <h2>Contact Us</h2>
           <div class="fullname">
             <div class="name">
               <label for="fname">First Name <span>*</span></label>
-              <input type="text" id="fname" />
+              <input type="text" id="fname" name="fname" />
               <p class="form-alert">This field is required</p>
             </div>
             <div class="name">
-              <label for="lasname">Last Name <span>*</span></label>
-              <input type="text" id="lastname" />
+              <label for="lastname">Last Name <span>*</span></label>
+              <input type="text" id="lastname" name="lastname" />
               <p class="form-alert">This field is required</p>
             </div>
           </div>
 
           <div class="email">
             <label for="email">Email Address <span>*</span></label>
-            <input type="email" id="email" />
+            <input type="email" id="email" name="email" />
             <p class="form-alert">This field is required</p>
           </div>
 
@@ -60,8 +58,8 @@
             </div>
           </div>
           <div class="message">
-            <label for="message">Message <span>*</span></label>
-            <textarea name="message" id="mesaage-box"></textarea>
+            <label for="message-box">Message <span>*</span></label>
+            <textarea name="message" id="message-box" ></textarea>
             <p class="form-alert">This field is required</p>
           </div>
           <div class="checkbox">
@@ -76,12 +74,13 @@
         </form>
       </div>
     </main>
-    <div id="sucess-message" class="sucess-message">
+    <div id="success-message" class="success-message">
       <div class="message-header">
         <img src="./Assets/assets/images/icon-success-check.svg" alt="" />
         Message Sent <br />
-        <p>Thanks for completing the form we"ll be in touch</p>
+        <p>Thanks for completing the form. We'll be in touch.</p>
       </div>
     </div>
+    <script src="./JS/script.js"></script>
   </body>
 </html>
